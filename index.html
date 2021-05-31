@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/index.css">
+  <title>BOM</title>
+  <!--  21-05-31 周一 -->
+</head>
+<body>
+<!--<div class="assign">加载新文档</div>-->
+<!--<div class="reload">刷新</div>-->
+<!--<div class="replace">替换</div>-->
+<!--<div class="open">open</div>-->
+<!--<div class="close" style="border: 1px solid red">close</div>-->
+<!--  跨页面操作 -->
+<a href="https://www.baidu.com/?tn=80035161_1_dg">百度</a>
+<a href="https://www.runoob.com/js/js-loop-for.html">菜鸟教程</a>
+<a href="https://www.iconfont.cn/">阿里巴巴</a>
+<a href="about.html">about</a>
+<a href="javascript:void(0);">点击无效</a>
+
+<script src="js/common.js"></script>
+
+<script>
+  //startsWith
+  //origin 拿 来用
+  //加载新文档
+  let as = $$('a[href]'); //拿到
+  as.forEach(function (item){ //遍历
+    if (item.getAttribute('href') !== "javascript:void(0);") { //过滤 点击无效
+      item.addEventListener('click',function (event){ //点击事件
+        let link = this.getAttribute('href');
+        event.preventDefault();//阻止 a 标签默认行为
+          if (link.startsWith('https:')){
+             let l = encodeURIComponent(link) //编码
+             window.open(`warning.html?${l}`);
+          }else {
+             location.href = 'about.html';
+          }
+      })
+    }
+  })
+
+
+// $('.assign').addEventListener('click',function (){
+//   location.assign('https://www.baidu.com/?tn=80035161_1_dg')
+//  // location.href = 'https://www.baidu.com/?tn=80035161_1_dg'
+// })
+// //刷新
+// $('.reload').addEventListener('click',() =>{
+//  location.reload()
+// })
+//
+// //替换
+// $('.replace').addEventListener('click',() =>{
+//   //http://localhost:63342/5%E6%9C%88/05-31/  -- 给它的后面做替换
+//   location.replace('about.html')
+//
+// })
+//   //打开
+// $('.open').addEventListener('click',() =>{
+//  window.open('http://localhost:63342/5%E6%9C%88/05-31/about.html')
+// })
+//   //关闭
+// $('.close').addEventListener('click',function (){
+// window.close()
+// })
+</script>
+<script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>warning</title>
+    <style>
+        div {
+            font-size: 25px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+ <div class="warning" style="color: blue;"></div>
+ <div class="btn" style="color: red;"></div>
+</body>
+<script src="js/common.js"></script>
+<script>
+        let b =   $('.btn'); //获取标签
+        let h = location.href;//获取地址
+        h = decodeURIComponent(h) //解码
+        let link =  h.slice(h.indexOf('?') + 1,h.length); //截取地址把?后面的拿出来
+        b.innerHTML = `跳转到 ${link} 的页面`;//拼接html
+        b.addEventListener('click',function (){
+            location.href = link; //点击跳转
+        })
+         $('.warning').innerHTML = '警告是否要跳到该页面';
+</script>
+</html>

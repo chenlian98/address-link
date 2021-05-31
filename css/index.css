@@ -1,0 +1,7 @@
+div ,a {
+    text-align: center;
+    font-size: 30px;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 10px;
+}
